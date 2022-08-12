@@ -1,12 +1,19 @@
-import React from 'react'
+import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 
 import App from '@/app'
+import { GlobalCSS } from '@/styles'
+
+import '@fontsource/roboto/300.css'
+import '@fontsource/roboto/400.css'
+import '@fontsource/roboto/500.css'
+import '@fontsource/roboto/700.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(
-    <React.StrictMode>
+    <StrictMode>
+        <GlobalCSS />
         <App />
-    </React.StrictMode>
+    </StrictMode>
 )
