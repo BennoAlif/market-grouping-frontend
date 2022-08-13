@@ -2,10 +2,18 @@ import React from 'react'
 
 import { Wrapper } from '@/components'
 
+import Result from './result'
+import Interest from './interest'
+
+import { sHome } from './styles'
+
 const Home = () => {
     return (
         <Wrapper>
-            <div>Home</div>
+            <div className={sHome}>
+                <Interest />
+                <Result />
+            </div>
         </Wrapper>
     )
 }
