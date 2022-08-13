@@ -4,7 +4,11 @@ import { Button, Checkbox, FormGroup, FormControlLabel } from '@mui/material'
 import { getInterstList } from './helpers'
 import { sInterest, sInterestCheckbox } from './styles'
 
-const Interest = () => {
+const Interest = ({
+    isLoading,
+    submitButtonHandler,
+    interestCheckboxOnChangeHandler,
+}) => {
     return (
         <div className={sInterest}>
             <div>
@@ -18,15 +22,24 @@ const Interest = () => {
                         return (
                             <FormControlLabel
                                 key={index}
+                                name={item}
                                 label={item}
+                                disabled={isLoading}
                                 control={<Checkbox />}
+                                onChange={interestCheckboxOnChangeHandler}
                             />
                         )
                     })}
                 </FormGroup>
             </div>
             <div>
-                <Button variant='contained' color='primary' fullWidth>
+                <Button
+                    color='primary'
+                    variant='contained'
+                    disabled={isLoading}
+                    onClick={submitButtonHandler}
+                    fullWidth
+                >
                     Submit
                 </Button>
             </div>
