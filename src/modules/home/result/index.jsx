@@ -10,8 +10,10 @@ const Result = ({ graph, setGraph, subgraph, isInitial, isLoading }) => {
     const [force, setForce] = useState()
 
     useEffect(() => {
-        if (graph.nodes) {
+        if (graph?.nodes) {
             setForce({ ...graph })
+        } else {
+            setForce(undefined)
         }
     }, [graph])
 
