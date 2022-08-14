@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
+import { SnackbarProvider } from 'notistack'
 
 import App from '@/app'
 import { GlobalCSS } from '@/styles'
@@ -13,7 +14,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(
     <StrictMode>
-        <GlobalCSS />
-        <App />
+        <SnackbarProvider
+            maxSnack={1}
+            anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
+        >
+            <GlobalCSS />
+            <App />
+        </SnackbarProvider>
     </StrictMode>
 )
