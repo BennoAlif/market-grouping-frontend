@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 import React, { useState } from 'react';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
-import { sItem, sItemTitle, sItemContent } from './styles';
+import { sItem, sItemContent } from './styles';
 
 const Item = ({ data, title, setGraph, accountList }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +14,6 @@ const Item = ({ data, title, setGraph, accountList }) => {
   });
   let uniqueTags = [...new Set(tags)];
   let uniqueContexts = [...new Set(contexts)];
-  console.log(uniqueContexts);
   return (
     <div className={sItem}>
       <Button
@@ -33,7 +32,7 @@ const Item = ({ data, title, setGraph, accountList }) => {
         <div className={sItemContent}>
           <p>Kategori utama: {uniqueTags.join(', ')}</p>
           <p>Sub-kategori: {uniqueContexts.join(', ')}</p>
-          {accountList.map((item, index) => {
+          {accountList.slice(0, 5).map((item, index) => {
             return (
               <div key={index}>
                 {/* <p>{item.target}</p> */}
