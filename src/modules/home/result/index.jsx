@@ -17,14 +17,12 @@ const Result = ({ subgraph, isInitial, isLoading }) => {
                 </div>
             ) : (
                 <div className={sResultContent}>
-                    {Object.values(subgraph).map((item, index) => {
+                    {subgraph.map((item) => {
                         return (
                             <Item
-                                key={index}
+                                key={item.id}
                                 accountList={item.links}
-                                title={`Segment ${index + 1} - ${
-                                    item.links.length
-                                } Akun`}
+                                title={`Subgraph ${item.id} - ${item.links.length} Akun`}
                             />
                         )
                     })}
