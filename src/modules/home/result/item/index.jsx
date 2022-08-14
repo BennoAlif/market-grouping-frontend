@@ -31,8 +31,8 @@ const Item = ({ data, title, setGraph, accountList }) => {
       {isOpen && (
         <div className={sItemContent}>
           <p>Kategori utama: {uniqueTags.join(', ')}</p>
-          <p>Sub-kategori: {uniqueContexts.join(', ')}</p>
-          {accountList.slice(0, 5).map((item, index) => {
+          <p>Sub-kategori: {uniqueContexts.slice(0, 10).join(', ')}</p>
+          {accountList.slice(0, 10).map((item, index) => {
             return (
               <div key={index}>
                 {/* <p>{item.target}</p> */}

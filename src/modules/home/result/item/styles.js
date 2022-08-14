@@ -1,22 +1,23 @@
-import { css } from '@emotion/css'
+import { css } from '@emotion/css';
 
 export const sItem = css`
-    width: 100%;
+  width: 100%;
 
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-`
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+`;
 
 export const sItemContent = css`
-    width: 100%;
-
-    display: flex;
-    gap: 20px;
-    flex-direction: column;
-`
+  width: 100%;
+  max-height: 500px;
+  overflow: auto;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+`;
 
 export const sItemTitle = css`
-    font-size: 16px;
-    font-weight: bold;
-`
+  font-size: 16px;
+  font-weight: bold;
+`;

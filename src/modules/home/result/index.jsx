@@ -51,7 +51,7 @@ const Result = ({ graph, setGraph, subgraph, isInitial, isLoading }) => {
                 key={item.id}
                 setGraph={setGraph}
                 accountList={item.links}
-                title={`Subgraph ${item.id} - ${item.links.length} Interaksi`}
+                title={`Segmen ${item.id} - ${item.nodes.length} Akun & ${item.links.length} Interaksi`}
               />
             );
           })}
