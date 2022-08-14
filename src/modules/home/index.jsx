@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useSnackbar } from 'notistack'
 
 import { Wrapper } from '@/components'
 
@@ -9,6 +10,8 @@ import Interest from './interest'
 import { sHome } from './styles'
 
 const Home = () => {
+    const { enqueueSnackbar } = useSnackbar()
+
     const [subgraph, setSubgraph] = useState({})
     const [isInitial, setIsInitial] = useState(true)
     const [isLoading, setIsLoading] = useState(false)
@@ -38,10 +41,21 @@ const Home = () => {
 
             const data = await response.data.data.subgraph
 
-            console.log(response.data.data)
-            setSubgraph(data)
+            const entriesData = Object.entries(data)
+            const fixedEntriesData = entriesData.map(([key, value]) => {
+                return {
+                    id: key.replace('subgraph', ''),
+                    ...value,
+                }
+            })
+            const sortedFixedEntriesData = fixedEntriesData.sort((a, b) => {
+                return a.id - b.id
+            })
+
+            setSubgraph(sortedFixedEntriesData)
         } catch {
-            //
+            setSubgraph({})
+            enqueueSnackbar('Failed to fetch data', { variant: 'error' })
         } finally {
             setIsLoading(false)
         }

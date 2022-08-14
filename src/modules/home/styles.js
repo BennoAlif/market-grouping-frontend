@@ -5,4 +5,6 @@ export const sHome = css`
 
     display: flex;
     gap: 20px;
+
+    padding-bottom: 40px;
 `
