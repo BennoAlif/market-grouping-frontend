@@ -1,5 +1,5 @@
 import ForceGraph2D from 'react-force-graph-2d';
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 
 import Item from './item';
 import {
@@ -22,6 +22,11 @@ const Result = ({ graph, setGraph, subgraph, isInitial, isLoading }) => {
     }
   }, [graph]);
 
+  const handleClick = useCallback((node) => {
+    // Aim at node from outside it
+    window.open(`https://twitter.com/${node.id}`, '_blank');
+  }, []);
+
   return (
     <div className={sResult}>
       <div className={sResultGraph}>
@@ -32,6 +37,7 @@ const Result = ({ graph, setGraph, subgraph, isInitial, isLoading }) => {
           backgroundColor="aliceblue"
           nodeLabel="id"
           ref={forceRef}
+          onNodeClick={handleClick}
         />
       </div>
       {isInitial ? (

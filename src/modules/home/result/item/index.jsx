@@ -2,6 +2,7 @@ import { Button } from '@mui/material';
 import React, { useState } from 'react';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import { sItem, sItemContent } from './styles';
+import { getInterstList } from '../../../../modules/home/interest/helpers';
 
 const Item = ({ data, title, setGraph, accountList, nodeList }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +31,9 @@ const Item = ({ data, title, setGraph, accountList, nodeList }) => {
     textContexts.push(...e.context);
     tags.push(e.tag);
   });
-  let context = getMostContext(textContexts);
+  let res = textContexts.filter((e) => !getInterstList().includes(e));
+  // console.log(res);
+  let context = getMostContext(res);
 
   // let uniqueTags = [...new Set(tags)];
   // let uniqueContexts = [...new Set(contexts)];
